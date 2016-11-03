@@ -1,0 +1,24 @@
+.banner {
+  position: relative;
+  .banneriframe {
+    border-width: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .banner-font {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    font: 800 20px  'Open Sans', Impact;
+  }
+}
+
+svg {
+  width: 100%;
+  margin: auto;
+  display: block;
+}
