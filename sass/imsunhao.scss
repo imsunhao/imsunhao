@@ -1,13 +1,9 @@
 @import 'compass';
-
 //@import "compass/reset";
 
 @import '../partials/variables';
-
 @import '../partials/mixins';
-
 @import '../partials/layout';
-
 
 html * {
 	-webkit-font-smoothing: antialiased;
@@ -42,12 +38,16 @@ h1, h2 {
 	font-weight: bold;
 }
 
-.cd-container { /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+@import '../partials/font-imsunhao';
+@import '../partials/_canvas';
+@import '../partials/_svg';
+
+.cd-container {
 	width: 90%;
-	max-width: $L; // breakpoints inside partials > _layout.scss
+	max-width: $L;
 	margin: 0 auto;
 
-	&::after { /* clearfix */
+	&::after {
 		content: '';
 		display: table;
 		clear: both;
@@ -92,6 +92,10 @@ header {
 		height: 100%;
 		width: 4px;
 		background: darken($background, 5%);
+
+		@include MQ(MS) {
+			display: none;
+		}
 	}
 
 	@include MQ(L) {
@@ -140,7 +144,7 @@ header {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	box-shadow: 0 0 0 4px $color-3, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05) ;
+	box-shadow: 0 0 0 4px $color-3, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05);
 
 	img {
 		display: block;
@@ -148,41 +152,29 @@ header {
 		border-radius: 50%;
 	}
 
+	.cssanimations &.is-hidden {
+		visibility: hidden;
+	}
+
+	.cssanimations &.bounce-in {
+		visibility: visible;
+		@include animation(cd-bounce-1 .6s);
+	}
+
 	@include MQ(L) {
 		width: 60px;
 		height: 60px;
 		left: 50%;
 		margin-left: -30px;
-
 		/* Force Hardware Acceleration in WebKit */
 		-webkit-transform: translateZ(0);
 		-webkit-backface-visibility: hidden;
-
-		.cssanimations &.is-hidden {
-			visibility: hidden;
-		}
-
-		.cssanimations &.bounce-in {
-			visibility: visible;
-			@include animation(cd-bounce-1 .6s);
-		}
-	}
-}
-
-@include keyframes(cd-bounce-1) {
-	0% {
-		opacity: 0;
-		@include transform(scale(.5));
 	}
 
-	60% {
-		opacity: 1;
-		@include transform(scale(1.2));
+	@include MQ(MS) {
+		display: none ;
 	}
 
-	100% {
-		@include transform(scale(1));
-	}
 }
 
 .cd-timeline-content {
@@ -238,6 +230,15 @@ header {
 		width: 0;
 		border: 7px solid transparent;
 		border-right: 7px solid $color-3;
+	}
+
+	.cssanimations &.is-hidden {
+		visibility: hidden;
+	}
+
+	.cssanimations &.bounce-in {
+		visibility: visible;
+		@include animation(cd-bounce-2 .6s);
 	}
 
 	@include MQ(M) {
@@ -300,24 +301,30 @@ header {
 			}
 		}
 
-		.cssanimations &.is-hidden {
-			visibility: hidden;
-		}
-
-		.cssanimations &.bounce-in {
-			visibility: visible;
-			@include animation(cd-bounce-2 .6s);
-		}
 	}
+
+	@include MQ(MS){
+		margin-left:0;
+	}
+
 }
 
-@include MQ(L) {
-	/* inverse bounce effect on even content blocks */
-	.cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
-		@include animation(cd-bounce-2-inverse .6s);
+
+@include keyframes(cd-bounce-1) {
+	0% {
+		opacity: 0;
+		@include transform(scale(.5));
+	}
+
+	60% {
+		opacity: 1;
+		@include transform(scale(1.2));
+	}
+
+	100% {
+		@include transform(scale(1));
 	}
 }
-
 @include keyframes(cd-bounce-2) {
 	0% {
 		opacity: 0;
@@ -333,7 +340,6 @@ header {
 		@include transform(translateX(0));
 	}
 }
-
 @include keyframes(cd-bounce-2-inverse) {
 	0% {
 		opacity: 0;
@@ -350,6 +356,19 @@ header {
 	}
 }
 
-@import '../partials/font-imsunhao';
-@import '../partials/myApp';
-@import '../partials/myCanvas';
+
+.banner {
+	position: relative;
+	.banneriframe {
+		border-width: 0;
+		height: 100%;
+		width: 100%;
+	}
+
+
+}
+
+.head{
+	position: relative;
+	height:100px;
+}

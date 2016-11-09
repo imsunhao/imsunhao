@@ -1,8 +1,11 @@
 // breakpoints
-   
-$S:     320px;   
-$M:     768px;     
-$L:     1170px;     
+
+$S:     320px;
+$M:     768px;
+$L:     1170px;
+$MS:     320px;
+$MM:     768px;
+$ML:     1170px;
 
 // media queries
 
@@ -15,6 +18,15 @@ $L:     1170px;
   }
   @else if $canvas == L {
    @media only screen and (min-width: $L) { @content; } 
+  }
+  @else if $canvas == MS{
+    @media only screen and (max-width: $MS) { @content; }
+  }
+  @else if $canvas == MM{
+    @media only screen and (max-width: $MM) { @content; }
+  }
+  @else if $canvas == ML{
+    @media only screen and (max-width: $ML) { @content; }
   }
 }
 

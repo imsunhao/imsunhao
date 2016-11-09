@@ -2,8 +2,8 @@
 $(function () {
 	var $timeline_block = $('.cd-timeline-block');
 	$timeline_block.each(function(){
-		if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
-			$(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
+		if($(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75) {
+			$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
 		}
 	});
 	$(window).on('scroll', function(){
@@ -36,21 +36,21 @@ $(function () {
 	function reset() {
 		ctx.beginPath();
 		// ctx.fillRect(0,0,cvs.width,cvs.height);
-		ctx.arc(250,250,100,0,Math.PI*2);
-		ctx.lineWidth=20;
+		ctx.arc(50,50,40,0,Math.PI*2);
+		ctx.lineWidth=11;
 		ctx.strokeStyle='#eee';
 		ctx.stroke();
 	}
 	function draw() {
 		ctx.beginPath();
-		ctx.arc(250,250,100,start,end);
+		ctx.arc(50,50,40,start,end);
 		ctx.lineWidth=10;
 		ctx.strokeStyle=color1;
 		ctx.stroke();
 	}
 	function draw2() {
 		ctx.beginPath();
-		ctx.arc(250,250,100,start2,end2);
+		ctx.arc(50,50,40,start2,end2);
 		ctx.lineWidth=10;
 		ctx.strokeStyle=color2;
 		ctx.stroke();
