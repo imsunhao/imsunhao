@@ -1,41 +1,40 @@
 @import 'compass';
-//@import "compass/reset";
-
+@import "compass/reset";
 @import '../partials/variables';
 @import '../partials/mixins';
 @import '../partials/layout';
 
 html * {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *, *:after, *:before {
-	@include box-sizing(border-box);
+  @include box-sizing(border-box);
 }
 
 body {
-	font: {
-		size: 100%;
-		family: $primary-font; // variables inside partials > _variables.scss
-	}
-	color: $main-text;
-	background-color: $background;
+  font: {
+    size: 100%;
+    family: $primary-font; // variables inside partials > _variables.scss
+  }
+  color: $main-text;
+  background-color: $background;
 }
 
 a {
-	color: $link;
-	text-decoration: none;
-	font-family: $secondary-font;
+  color: $link;
+  text-decoration: none;
+  font-family: $secondary-font;
 }
 
 img {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 h1, h2 {
-	font-family: $secondary-font;
-	font-weight: bold;
+  font-family: $secondary-font;
+  font-weight: bold;
 }
 
 @import '../partials/font-imsunhao';
@@ -43,332 +42,798 @@ h1, h2 {
 @import '../partials/_svg';
 
 .cd-container {
-	width: 90%;
-	max-width: $L;
-	margin: 0 auto;
+  width: 90%;
+  max-width: $L;
+  margin: 0 auto;
 
-	&::after {
-		content: '';
-		display: table;
-		clear: both;
-	}
-}
-
-header {
-	height: 200px;
-	line-height: 200px;
-	text-align: center;
-	background: $color-1;
-
-	h1 {
-		color: $color-3;
-		@include font-size(18px);
-	}
-
-	@include MQ(L) {
-		height: 300px;
-		line-height: 300px;
-
-		h1 {
-			@include font-size(24px);
-		}
-	}
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 }
 
 #cd-timeline {
-	position: relative;
-	padding: 2em 0;
-	margin: {
-		top: 2em;
-		bottom: 2em;
-	}
+  position: relative;
+  padding: 2em 0;
+  margin: {
+    top: 2em;
+    bottom: 2em;
+  }
 
-	&::before {
-		/* this is the vertical line */
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 22px;
-		height: 100%;
-		width: 4px;
-		background: darken($background, 5%);
+  &::before {
+    /* this is the vertical line */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 22px;
+    height: 100%;
+    width: 4px;
+    background: darken($background, 5%);
 
-		@include MQ(MS) {
-			display: none;
-		}
-	}
+    @include MQ(MS) {
+      display: none;
+    }
+  }
 
-	@include MQ(L) {
-		margin: {
-			top: 3em;
-			bottom: 3em;
-		}
+  @include MQ(L) {
+    margin: {
+      top: 3em;
+      bottom: 3em;
+    }
 
-		&::before {
-			left: 50%;
-			margin-left: -2px;
-		}
-	}
+    &::before {
+      left: 50%;
+      margin-left: -2px;
+    }
+  }
 }
 
 .cd-timeline-block {
-	position: relative;
-	margin: 2em 0;
-	@include clearfix;
+  position: relative;
+  margin: 2em 0;
+  @include clearfix;
 
-	&:first-child {
-		margin-top: 0;
-	}
+  &:first-child {
+    margin-top: 0;
+  }
 
-	&:last-child {
-		margin-bottom: 0;
-	}
+  &:last-child {
+    margin-bottom: 0;
+  }
 
-	@include MQ(L) {
-		margin: 4em 0;
+  @include MQ(L) {
+    margin: 4em 0;
 
-		&:first-child {
-			margin-top: 0;
-		}
+    &:first-child {
+      margin-top: 0;
+    }
 
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .cd-timeline-img {
-	position: absolute;
-	top: 30%;
-	left: 5px;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	box-shadow: 0 0 0 4px $color-3, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05);
+  position: absolute;
+  top: 30%;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px $color-3, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05);
 
-	img {
-		display: block;
-		position: relative;
-		border-radius: 50%;
-	}
+  img {
+    display: block;
+    position: relative;
+    border-radius: 50%;
+  }
 
-	.cssanimations &.is-hidden {
-		visibility: hidden;
-	}
+  .cssanimations &.is-hidden {
+    visibility: hidden;
+  }
 
-	.cssanimations &.bounce-in {
-		visibility: visible;
-		@include animation(cd-bounce-1 .6s);
-	}
+  .cssanimations &.bounce-in {
+    visibility: visible;
+    @include animation(cd-bounce-1 .6s);
+  }
 
-	@include MQ(L) {
-		width: 60px;
-		height: 60px;
-		left: 50%;
-		margin-left: -30px;
-		/* Force Hardware Acceleration in WebKit */
-		-webkit-transform: translateZ(0);
-		-webkit-backface-visibility: hidden;
-	}
+  @include MQ(L) {
+    width: 60px;
+    height: 60px;
+    left: 50%;
+    margin-left: -30px;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
 
-	@include MQ(MS) {
-		display: none ;
-	}
+  @include MQ(MS) {
+    display: none;
+  }
 
 }
 
 .cd-timeline-content {
-	position: relative;
-	margin-left: 60px;
-	background: $color-6;
-	@include border-radius;
-	padding: 1em;
-	box-shadow: 0 3px 0 darken($background, 5%);
-	@include clearfix;
+  transition: all .5s ease;
+  position: relative;
+  margin-left: 60px;
+  @include border-radius;
+  padding: 1em;
+  box-shadow: 0 3px 0 darken($background, 5%);
+  @include clearfix;
 
-	h2 {
-		color: $color-1;
-	}
+  h2 {
+    color: $color-1;
+    padding: 1em .5em;
+  }
 
-	p, .cd-read-more, .cd-date {
-		@include font-size(13px);
-	}
+  p {
+    padding: 0 1em;
+    line-height: 1.6;
+  }
 
-	.cd-read-more, .cd-date {
-		display: inline-block;
-	}
+  .cd-read-more {
+    float: right;
+    padding: .8em 1em;
+    margin: 1em;
+    background: $link;
+    color: $color-3;
+    @include border-radius;
 
-	p {
-		margin: 1em 0;
-		line-height: 1.6;
-	}
+    &:hover {
+      background-color: lighten($link, 5%);
+    }
+  }
 
-	.cd-read-more {
-		float: right;
-		padding: .8em 1em;
-		background: $link;
-		color: $color-3;
-		@include border-radius;
+  .layer-1 {
+    background-color: $color-6;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    z-index: -1;
+  }
+  .layer-3 {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    .cd-date {
+      width: 100%;
+      padding-right: 1em;
+      padding-top: 1em;
+      text-align: right;
+    }
+  }
 
-		.no-touch &:hover {
-			background-color: lighten($link, 5%);
-		}
-	}
+  .layer-4 {
+    @include clearfix();
+  }
 
-	.cd-date {
-		float: left;
-		padding: .8em 0;
-		opacity: .7;
-	}
+  p, .cd-read-more, .cd-date {
+    @include font-size(13px);
+  }
 
-	&::before {
-		content: '';
-		position: absolute;
-		top: 16px;
-		right: 100%;
-		height: 0;
-		width: 0;
-		border: 7px solid transparent;
-		border-right: 7px solid $color-3;
-	}
+  .cd-read-more, .cd-date {
+    display: inline-block;
+  }
 
-	.cssanimations &.is-hidden {
-		visibility: hidden;
-	}
+  &::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 100%;
+    height: 0;
+    width: 0;
+    border: 7px solid transparent;
+    border-right: 7px solid $color-3;
+  }
 
-	.cssanimations &.bounce-in {
-		visibility: visible;
-		@include animation(cd-bounce-2 .6s);
-	}
+  .cssanimations &.is-hidden {
+    visibility: hidden;
+  }
 
-	@include MQ(M) {
-		h2 {
-			@include font-size(20px);
-		}
+  .cssanimations &.bounce-in {
+    visibility: visible;
+    @include animation(cd-bounce-2 .6s);
+  }
 
-		p {
-			@include font-size(16px);
-		}
+  @include MQ(M) {
+    h2 {
+      @include font-size(20px);
+    }
 
-		.cd-read-more, .cd-date {
-			@include font-size(14px);
-		}
-	}
+    p {
+      @include font-size(16px);
+    }
 
-	@include MQ(L) {
-		margin-left: 0;
-		padding: 1.6em;
-		width: 45%;
+    .cd-read-more, .cd-date {
+      @include font-size(14px);
+    }
+  }
 
-		&::before {
-			top: 24px;
-			left: 100%;
-			border-color: transparent;
-			border-left-color: $color-3;
-		}
+  @include MQ(L) {
+    margin-left: 0;
+    padding: 1.6em;
+    width: 45%;
 
-		.cd-read-more {
-			float: left;
-		}
+    &::before {
+      top: 24px;
+      left: 100%;
+      border-color: transparent;
+      border-left-color: $color-3;
+    }
 
-		.cd-date {
-			position: absolute;
-			width: 100%;
-			left: 122%;
-			top: 6px;
-			@include font-size(16px);
-		}
+    .cd-read-more {
+      float: left;
+    }
 
-		.cd-timeline-block:nth-child(even) & {
-			float: right;
+    .cd-date {
+      position: absolute;
+      width: 100%;
+      left: 122%;
+      top: 6px;
+      @include font-size(16px);
+    }
 
-			&::before {
-				top: 24px;
-				left: auto;
-				right: 100%;
-				border-color: transparent;
-				border-right-color: $color-3;
-			}
+    .cd-timeline-block:nth-child(even) & {
+      float: right;
 
-			.cd-read-more {
-				float: right;
-			}
+      &::before {
+        top: 24px;
+        left: auto;
+        right: 100%;
+        border-color: transparent;
+        border-right-color: $color-3;
+      }
 
-			.cd-date {
-				left: auto;
-				right: 122%;
-				text-align: right;
-			}
-		}
+      .cd-read-more {
+        float: right;
+      }
 
-	}
+      .cd-date {
+        left: auto;
+        right: 122%;
+        text-align: right;
+      }
+    }
 
-	@include MQ(MS){
-		margin-left:0;
-	}
+  }
+
+  @include MQ(MS) {
+    margin-left: 0;
+  }
 
 }
-
 
 @include keyframes(cd-bounce-1) {
-	0% {
-		opacity: 0;
-		@include transform(scale(.5));
-	}
+  0% {
+    opacity: 0;
+    @include transform(scale(.5));
+  }
 
-	60% {
-		opacity: 1;
-		@include transform(scale(1.2));
-	}
+  60% {
+    opacity: 1;
+    @include transform(scale(1.2));
+  }
 
-	100% {
-		@include transform(scale(1));
-	}
+  100% {
+    @include transform(scale(1));
+  }
 }
+
 @include keyframes(cd-bounce-2) {
-	0% {
-		opacity: 0;
-		@include transform(translateX(-100px));
-	}
+  0% {
+    opacity: 0;
+    @include transform(translateX(-100px));
+  }
 
-	60% {
-		opacity: 1;
-		@include transform(translateX(20px));
-	}
+  60% {
+    opacity: 1;
+    @include transform(translateX(20px));
+  }
 
-	100% {
-		@include transform(translateX(0));
-	}
+  100% {
+    @include transform(translateX(0));
+  }
 }
+
 @include keyframes(cd-bounce-2-inverse) {
-	0% {
-		opacity: 0;
-		@include transform(translateX(100px));
-	}
+  0% {
+    opacity: 0;
+    @include transform(translateX(100px));
+  }
 
-	60% {
-		opacity: 1;
-		@include transform(translateX(-20px));
-	}
+  60% {
+    opacity: 1;
+    @include transform(translateX(-20px));
+  }
 
-	100% {
-		@include transform(translateX(0));
-	}
+  100% {
+    @include transform(translateX(0));
+  }
 }
 
+.cd-nav-trigger {
+  /* hamburger icon */
+  position: fixed;
+  z-index: 3;
+  top: 12px;
+  right: 5%;
+  height: 44px;
+  width: 44px;
 
-.banner {
-	position: relative;
-	.banneriframe {
-		border-width: 0;
-		height: 100%;
-		width: 100%;
-	}
+  /* image replacement */
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
 
+  @include transition(transform 0.2s);
 
+  span {
+    /* icon created in CSS */
+    position: absolute;
+    @include center; // mixin inside partials > _mixins.scss
+    width: 32px;
+    height: 3px;
+    background-color: darken($color-8, 40%);
+
+    &::before, &:after {
+      /* upper and lower lines of the menu icon */
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: inherit;
+
+      /* Force Hardware Acceleration in WebKit */
+      @include transform(translateZ(0));
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+
+      @include transition(transform 0.2s, width 0.2s);
+    }
+
+    &::before {
+      @include transform-origin(right top);
+      @include transform(translateY(-10px));
+    }
+
+    &::after {
+      @include transform-origin(right bottom);
+      @include transform(translateY(10px));
+    }
+
+  }
+
+  .no-touch &:hover {
+    /* rotate trigger on hover */
+    @include transform(rotate(180deg));
+
+    span::after,
+    span::before {
+      /* animate arrow --> from hamburger to arrow */
+      width: 50%;
+    }
+
+    span::before {
+      @include transform(translateX(1px) translateY(1px) rotate(45deg));
+    }
+
+    span::after {
+      @include transform(translateX(1px) translateY(-1px) rotate(-45deg));
+    }
+  }
+
+  @include MQ(L) {
+    top: 38px;
+  }
 }
 
-.head{
-	position: relative;
-	height:100px;
+.cd-nav-container {
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: $color-13;
+
+  /* Force Hardware Acceleration in WebKit */
+  @include transform(translateZ(0));
+  @include backface-visibility(hidden);
+
+  @include transform(translateX(100%));
+  @include transition(transform $animation-duration 0s, box-shadow 0s $animation-duration); // see partials > _variables.scss
+
+  &.is-visible {
+    @include transform(translateX(0));
+    -webkit-overflow-scrolling: touch;
+    box-shadow: -4px 0 30px rgba(#000, .2);
+    @include transition(transform $animation-duration 0s, box-shadow 0s 0s);
+  }
+
+  header {
+    padding: 1.5em 0 0 6.25%;
+    height: 68px;
+    position: relative;
+  }
+
+  h3 {
+    font: {
+      size: 1.6rem;
+      weight: bold;
+      family: $secondary-font;
+    }
+    text-transform: uppercase;
+    color: $color-8;
+  }
+
+  @include MQ(M) {
+    width: 70%;
+
+    header {
+      height: 116px;
+      padding-top: 3em;
+    }
+  }
+}
+
+.cd-close-nav {
+  /* 'X' close icon */
+  position: absolute;
+  height: 44px;
+  width: 44px;
+  /* set the right position value so that it overlaps the .cd-nav-trigger*/
+  right: 6.25%;
+  @include center(y);
+
+  /* image replacement */
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+
+  @include transition(opacity .2s);
+
+  &::after,
+  &::before {
+    /* lines of 'X' icon */
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 32px;
+    left: 50%;
+    top: 50%;
+    background-color: $color-8;
+    @include backface-visibility(hidden);
+  }
+
+  &::after {
+    @include transform(translateX(-50%) translateY(-50%) rotate(45deg));
+  }
+
+  &::before {
+    @include transform(translateX(-50%) translateY(-50%) rotate(-45deg));
+  }
+
+  .no-touch &:hover {
+    opacity: .8;
+  }
+
+  @include MQ(M) {
+    right: 7.14%;
+  }
+}
+
+.cd-nav {
+  @include clearfix;
+  background-color: darken($color-13, 5%);
+
+  li {
+    @include column(.5);
+    /* 68px is the navigation header height  and the menu items will be allocated in 3 rows */
+    height: calc((100vh - 68px) / 3);
+    min-height: 120px;
+    border: 1px solid $color-13;
+    border-top: none;
+    border-left: none;
+
+    &:nth-of-type(2n) {
+      border-right-width: 0;
+    }
+  }
+
+  a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    @include transition(background-color .2s);
+
+    .no-touch &:hover svg {
+      @include animation(cd-shock .3s);
+    }
+  }
+
+  .no-touch & li a:hover,
+  li.cd-selected a {
+    span * {
+      /* on hover or if selected - change text and icon color*/
+      stroke: $color-13;
+    }
+
+    em {
+      /* on hover or if selected - change text and icon color*/
+      color: $color-13;
+    }
+  }
+
+  .no-touch & li:first-of-type a:hover,
+  li.cd-selected:first-of-type a {
+    /* on hover or if selected - change background color*/
+    background-color: $color-7;
+  }
+
+  .no-touch & li:nth-of-type(2) a:hover,
+  li.cd-selected:nth-of-type(2) a {
+    /* on hover or if selected - change background color*/
+    background-color: $color-8;
+  }
+
+  .no-touch & li:nth-of-type(3) a:hover,
+  li.cd-selected:nth-of-type(3) a {
+    /* on hover or if selected - change background color*/
+    background-color: $color-9;
+  }
+
+  .no-touch & li:nth-of-type(4) a:hover,
+  li.cd-selected:nth-of-type(4) a {
+    /* on hover or if selected - change background color*/
+    background-color: $color-10;
+  }
+
+  .no-touch & li:nth-of-type(5) a:hover,
+  li.cd-selected:nth-of-type(5) a {
+    /* on hover or if selected - change background color*/
+    background-color: $color-11;
+  }
+
+  .no-touch & li:nth-of-type(6) a:hover,
+  li.cd-selected:nth-of-type(6) a {
+    /* on hover or if selected - change background color*/
+    background-color: $color-12;
+  }
+
+  span, em {
+    position: absolute;
+  }
+
+  span {
+    top: calc(50% - 48px);
+    left: 50%;
+    @include transform(translateX(-50%));
+    height: 48px;
+    width: 48px;
+
+    * {
+      @include transition(stroke .2s);
+    }
+  }
+
+  em {
+    width: 100%;
+    left: 0;
+    top: calc(50% + 15px);
+    color: $color-8;
+    @include transition(color .2s);
+    @include backface-visibility(hidden);
+  }
+
+  @include MQ(M) {
+
+    li {
+      /* 116px is the navigation header height and the menu items will be allocated in 3 rows */
+      height: calc((100vh - 116px) / 3);
+      min-height: 200px;
+    }
+
+    span {
+      height: 64px;
+      width: 64px;
+      top: calc(50% - 56px);
+    }
+
+    em {
+      font-size: 2.2rem;
+      font-weight: 300;
+      top: calc(50% + 21px);
+    }
+  }
+
+  @include MQ(L) {
+
+    li {
+      @include column(.3333);
+      /* 116px is the navigation header height  and the menu items will be allocated in 2 rows */
+      height: calc((100vh - 116px) / 2);
+      min-height: 250px;
+
+      &:nth-of-type(2n) {
+        border-right-width: 1px;
+      }
+
+      &:nth-of-type(3n) {
+        border-right-width: 0;
+      }
+    }
+
+    em {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+@include keyframes(cd-shock) {
+  0% {
+    @include transform(rotate(0deg));
+  }
+
+  30% {
+    @include transform(rotate(10deg));
+  }
+
+  60% {
+    @include transform(rotate(-10deg));
+  }
+
+  100% {
+    @include transform(rotate(0deg));
+  }
+}
+
+.cd-overlay {
+  /* shadow layer visible when navigation is open */
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  background-color: rgba(#000, .35);
+  visibility: hidden;
+  opacity: 0;
+  @include backface-visibility(hidden);
+  @include transition(opacity $animation-duration 0s, visibility 0s $animation-duration);
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    @include transition(opacity $animation-duration 0s, visibility 0s 0s);
+  }
+}
+
+main {
+  position: relative;
+  height: 100vh;
+  overflow-x: hidden;
+  @include transition(transform $animation-duration);
+  box-shadow: 0 0 30px darken($color-8, 20%);
+
+  &.scale-down {
+    @include transform(scale(.9));
+  }
+}
+
+.cd-section {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  @include transform(translateX(100%));
+  @include transition(transform 0s $animation-duration);
+
+  &.cd-selected {
+    position: relative;
+    z-index: 2;
+    @include transform(translateX(0));
+    @include transition(transform $animation-duration 0s);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  header {
+    height: 100vh;
+    background: $color-7;
+    position: relative;
+  }
+
+  &.projects header {
+    background-color: $color-8;
+  }
+
+  &.about header {
+    background-color: $color-9;
+  }
+
+  &.services header {
+    background-color: $color-10;
+  }
+
+  &.careers header {
+    background-color: $color-11;
+  }
+
+  &.contact header {
+    background-color: $color-12;
+  }
+
+  @include MQ(M) {
+    /* not 100vh to fix a small bug --> border visible otherwise */
+    header: 102vh;
+  }
+}
+
+.cd-title {
+  position: relative;
+  top: 48%;
+  @include transform(translateY(-50%));
+  .banneriframe {
+    border-width: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.cd-content {
+  padding: 4em 0;
+}
+
+.movie {
+  .movie__card {
+    position: relative;
+    transition: .3s ease-out;
+
+    %layer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 10px;
+    }
+
+    .layer-1 {
+      background-color: $color-6;
+      width: 100%;
+      @extend %layer;
+    }
+
+    .layer-2 {
+      -webkit-transform: translateZ(15px);
+      transform: translateZ(15px);
+      @extend %layer;
+    }
+
+    .layer-3 {
+      -webkit-transform: translateZ(25px);
+      transform: translateZ(25px);
+      @extend %layer;
+    }
+
+    .layer-4 {
+      overflow: visible;
+      -webkit-transform: translateZ(35px);
+      transform: translateZ(35px);
+      @extend %layer;
+    }
+  }
 }

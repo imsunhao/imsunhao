@@ -1,17 +1,29 @@
 // colors
 
-$main-text: #7f8c97; // main text
-$link: #acb7c0; // anchor tags
-$background: #e9f0f5; // body background color
+$main-text: #7f8c97;
+$link: #acb7c0;
+$background: #e9f0f5;
 
-$color-1: #303e49; // blue dark
-$color-2: #c03b44; // red
-$color-3: #ffffff; // white
-$color-4: #75ce66; // green
-$color-5: #f0ca45; // yellow
-$color-6: rgba(255,255,255,0.8); // yellow
+$color-1: #303e49;
+$color-2: #c03b44;
+$color-3: #ffffff;
+$color-4: #75ce66;
+$color-5: #f0ca45;
+$color-6: rgba(255,255,255,0.5);
+$color-7: #9e87ce;
+$color-8: #5c4b51;
+$color-9: #e0cf75;
+$color-10: #f5b65a;
+$color-11: #f25f5c;
+$color-12: #8abeb2;
+$color-13: #ffffff;
 
 // fonts 
 
 $primary-font: 'Droid Serif', serif;
 $secondary-font: 'Open Sans', sans-serif;
+
+
+// animation
+
+$animation-duration: 0.4s;

@@ -1,11 +1,11 @@
 // breakpoints
 
-$S:     320px;
+$S:     420px;
 $M:     768px;
 $L:     1170px;
-$MS:     320px;
-$MM:     768px;
-$ML:     1170px;
+$MS:     $S;
+$MM:     $M;
+$ML:     $L;
 
 // media queries
 
@@ -30,3 +30,9 @@ $ML:     1170px;
   }
 }
 
+// super light grid - it works with the .cd-container class inside style.scss
+
+@mixin column($percentage, $float-direction:left) {
+  width: 100% * $percentage;
+  float: $float-direction;
+}
