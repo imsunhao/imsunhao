@@ -1,13 +1,9 @@
-// breakpoints
-
 $S:     420px;
 $M:     768px;
 $L:     1170px;
 $MS:     $S;
 $MM:     $M;
 $ML:     $L;
-
-// media queries
 
 @mixin MQ($canvas) {
   @if $canvas == S {
@@ -29,8 +25,6 @@ $ML:     $L;
     @media only screen and (max-width: $ML) { @content; }
   }
 }
-
-// super light grid - it works with the .cd-container class inside style.scss
 
 @mixin column($percentage, $float-direction:left) {
   width: 100% * $percentage;

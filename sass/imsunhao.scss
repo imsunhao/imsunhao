@@ -16,7 +16,7 @@ html * {
 body {
   font: {
     size: 100%;
-    family: $primary-font; // variables inside partials > _variables.scss
+    family: $primary-font;
   }
   color: $main-text;
   background-color: $background;
@@ -208,7 +208,6 @@ h1, h2 {
       text-align: right;
     }
   }
-
   .layer-4 {
     @include clearfix();
   }
@@ -245,11 +244,9 @@ h1, h2 {
     h2 {
       @include font-size(20px);
     }
-
     p {
       @include font-size(16px);
     }
-
     .cd-read-more, .cd-date {
       @include font-size(14px);
     }
@@ -358,7 +355,6 @@ h1, h2 {
 }
 
 .cd-nav-trigger {
-  /* hamburger icon */
   position: fixed;
   z-index: 3;
   top: 12px;
@@ -366,7 +362,6 @@ h1, h2 {
   height: 44px;
   width: 44px;
 
-  /* image replacement */
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
@@ -374,15 +369,13 @@ h1, h2 {
   @include transition(transform 0.2s);
 
   span {
-    /* icon created in CSS */
     position: absolute;
-    @include center; // mixin inside partials > _mixins.scss
+    @include center;
     width: 32px;
     height: 3px;
     background-color: darken($color-8, 40%);
 
     &::before, &:after {
-      /* upper and lower lines of the menu icon */
       content: '';
       position: absolute;
       top: 0;
@@ -391,7 +384,6 @@ h1, h2 {
       height: 100%;
       background-color: inherit;
 
-      /* Force Hardware Acceleration in WebKit */
       @include transform(translateZ(0));
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
@@ -411,22 +403,20 @@ h1, h2 {
 
   }
 
-  .no-touch &:hover {
-    /* rotate trigger on hover */
+  &:hover {
     @include transform(rotate(180deg));
 
     span::after,
     span::before {
-      /* animate arrow --> from hamburger to arrow */
       width: 50%;
     }
 
     span::before {
-      @include transform(translateX(1px) translateY(1px) rotate(45deg));
+      @include transform(translateX(1px) translateY(-3px) rotate(45deg));
     }
 
     span::after {
-      @include transform(translateX(1px) translateY(-1px) rotate(-45deg));
+      @include transform(translateX(-1px) translateY(3px) rotate(-45deg));
     }
   }
 
@@ -537,7 +527,6 @@ h1, h2 {
 
   li {
     @include column(.5);
-    /* 68px is the navigation header height  and the menu items will be allocated in 3 rows */
     height: calc((100vh - 68px) / 3);
     min-height: 120px;
     border: 1px solid $color-13;
@@ -557,57 +546,48 @@ h1, h2 {
     text-align: center;
     @include transition(background-color .2s);
 
-    .no-touch &:hover svg {
+    &:hover span {
       @include animation(cd-shock .3s);
     }
   }
 
-  .no-touch & li a:hover,
+  li a:hover,
   li.cd-selected a {
     span * {
-      /* on hover or if selected - change text and icon color*/
       stroke: $color-13;
     }
-
     em {
-      /* on hover or if selected - change text and icon color*/
       color: $color-13;
     }
   }
 
-  .no-touch & li:first-of-type a:hover,
+  & li:first-of-type a:hover,
   li.cd-selected:first-of-type a {
-    /* on hover or if selected - change background color*/
     background-color: $color-7;
   }
 
-  .no-touch & li:nth-of-type(2) a:hover,
+  & li:nth-of-type(2) a:hover,
   li.cd-selected:nth-of-type(2) a {
-    /* on hover or if selected - change background color*/
     background-color: $color-8;
   }
 
-  .no-touch & li:nth-of-type(3) a:hover,
+  & li:nth-of-type(3) a:hover,
   li.cd-selected:nth-of-type(3) a {
-    /* on hover or if selected - change background color*/
     background-color: $color-9;
   }
 
-  .no-touch & li:nth-of-type(4) a:hover,
+  & li:nth-of-type(4) a:hover,
   li.cd-selected:nth-of-type(4) a {
-    /* on hover or if selected - change background color*/
     background-color: $color-10;
   }
 
-  .no-touch & li:nth-of-type(5) a:hover,
+  & li:nth-of-type(5) a:hover,
   li.cd-selected:nth-of-type(5) a {
-    /* on hover or if selected - change background color*/
     background-color: $color-11;
   }
 
-  .no-touch & li:nth-of-type(6) a:hover,
+  & li:nth-of-type(6) a:hover,
   li.cd-selected:nth-of-type(6) a {
-    /* on hover or if selected - change background color*/
     background-color: $color-12;
   }
 
@@ -621,10 +601,6 @@ h1, h2 {
     @include transform(translateX(-50%));
     height: 48px;
     width: 48px;
-
-    * {
-      @include transition(stroke .2s);
-    }
   }
 
   em {
@@ -639,7 +615,6 @@ h1, h2 {
   @include MQ(M) {
 
     li {
-      /* 116px is the navigation header height and the menu items will be allocated in 3 rows */
       height: calc((100vh - 116px) / 3);
       min-height: 200px;
     }
@@ -661,7 +636,6 @@ h1, h2 {
 
     li {
       @include column(.3333);
-      /* 116px is the navigation header height  and the menu items will be allocated in 2 rows */
       height: calc((100vh - 116px) / 2);
       min-height: 250px;
 
@@ -699,7 +673,6 @@ h1, h2 {
 }
 
 .cd-overlay {
-  /* shadow layer visible when navigation is open */
   position: fixed;
   height: 100%;
   width: 100%;
@@ -835,5 +808,25 @@ main {
       transform: translateZ(35px);
       @extend %layer;
     }
+  }
+}
+
+.svg-font {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  @include font-size(100px);
+  font-weight: bolder;
+  text-transform: uppercase;
+  letter-spacing:8px;
+
+  @include MQ(MM){
+    @include font-size(80px);
+  }
+  @include MQ(MS){
+    @include font-size(50px);
   }
 }
