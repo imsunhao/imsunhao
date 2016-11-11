@@ -8,7 +8,7 @@ sass_dir = "sass"
 images_dir = "images"
 javascripts_dir = "javascripts"
 
-output_style =  :compact
+output_style =  :compressed
 # relative_assets = true
 line_comments = false
 # cache = false

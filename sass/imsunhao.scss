@@ -26,6 +26,7 @@ a {
   color: $link;
   text-decoration: none;
   font-family: $secondary-font;
+  cursor: pointer;
 }
 
 img {
@@ -37,7 +38,7 @@ h1, h2 {
   font-weight: bold;
 }
 
-@import '../partials/font-imsunhao';
+@import '../partials/_font';
 @import '../partials/_canvas';
 @import '../partials/_svg';
 
@@ -209,7 +210,7 @@ h1, h2 {
     }
   }
   .layer-4 {
-    @include clearfix();
+    @include clearfix;
   }
 
   p, .cd-read-more, .cd-date {
