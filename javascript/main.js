@@ -122,7 +122,7 @@ $(function () {
         function loadCdTimeline(json) {
             var string = '';
             for (var i = 0; i < json.length; i++) {
-                string+=createOneTimeline(json[i].img,json[i].timeStart,json[i].timeEnd,json[i].title,json[i].content);
+                string+=createOneTimeline(json[i].img,json[i].timeStart,json[i].timeEnd,json[i].title,json[i].content,json[i].url);
             }
             $('#cd-timeline').append($(string));
             function createOneTimeline(img,timeStart,timeEnd,title,content,url) {
@@ -130,7 +130,7 @@ $(function () {
                 return '<div class="cd-timeline-block"><div class="cd-timeline-img is-hidden"> ' +
                     '<img src="'+img+'" alt="imsunhao"> </div> <div class="cd-timeline-content is-hidden"> <div class="cd-timeline-content-inner"> <div class="movie__card"> <div class="layer-1"> </div> <div class="layer-3">' +
                     ' <span class="cd-date"> <time class="time-start">'+timeStart+'</time>-<time class="time-end">'+timeEnd+'</time> </span> </div> ' +
-                    '<div class="layer-4"> <h2>'+title+'</h2> <p>'+content+'</p> <a href="url" class="cd-read-more">Read more</a> </div> </div> </div> </div> </div>'
+                    '<div class="layer-4"> <h2>'+title+'</h2> <p>'+content+'</p> <a href="'+url+'" class="cd-read-more">Read more</a> </div> </div> </div> </div> </div>'
             }
         }
     }
